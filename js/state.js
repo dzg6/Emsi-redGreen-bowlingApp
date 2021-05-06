@@ -56,6 +56,28 @@ class Player    {
             score = 0,
             chances = 2
         }
+        this.frameScores = []; //we actually do need an array if we want to keep track of separate frames until the end of the game.
+        //the frame nested object will reset at the start of every new frame
+        this.gameScore = 0;
+        this.totalScore = 0;
+    }
+}
+//despite how ugly this looks, I think it's the best option, 
+// because it connects specific frames to specific scores without introducing a frames number variable and it keeps them all equally accessible.
+class Player    {
+
+    constructor(name){
+        this.name = name;
+        this.frames = [{'score': 0, 'chances': 2}, 
+                       {'score': 0, 'chances': 2}, 
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2},
+                       {'score': 0, 'chances': 2} ]
         this.gameScore = 0;
         this.totalScore = 0;
     }
