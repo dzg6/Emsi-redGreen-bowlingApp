@@ -1,3 +1,17 @@
+//new class idea based on what I've seen of Mark's work.
+
+class Player    {
+    
+    constructor(name){
+        this.name = name;
+        this.chances = [];
+        this.frameScores = [];
+        this.gameScores = [];
+        this.totalScore = 0;
+    }
+}
+
+
 //state and method are necessarily conected, so I'll outline the method thinking behind the state structure below.
 //number of pins input => initial frame score and a change in number of chances  
 //in cases where more than one frame score is being added to, 
@@ -79,6 +93,19 @@ class Player    {
                        {'score': 0, 'chances': 2},
                        {'score': 0, 'chances': 2} ]
         this.gameScore = 0;
+        this.totalScore = 0;
+    }
+}
+
+//new class idea based on what I've seen of Mark's work.
+
+class Player    {
+    
+    constructor(name){
+        this.name = name;
+        this.chances = [];
+        this.frameScores = [];
+        this.gameScores = [];
         this.totalScore = 0;
     }
 }
