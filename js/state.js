@@ -5,7 +5,6 @@ class Player    {
     constructor(name){
         this.name = name;
         this.chances = [];
-        this.frameScores = [];
         this.gameScores = [];
         this.totalScore = 0;
     }
