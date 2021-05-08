@@ -1,77 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href ="stylesheet.css">
-    </head>
-    <body>
+  <head>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <body>
+    <div>
+      <div class="Main_Container font blue">
         <table>
-            <thead>
-                <tr>
-                <th colspan ="1">USER</th>
-                <th colspan="2">Round 1</th>
-                <th colspan="2">Round 2</th>
-                <th colspan="2">Round 3</th>
-                  <th colspan="2">Round 4</th>
-                  <th colspan="2">Round 5</th>
-                  <th colspan="2">Round 6</th>
-                  <th colspan="2">Round 7</th>
-                  <th colspan="2">Round 8</th>
-                  <th colspan="2">Round 9</th>
-                  <th colspan="3">Round 10</th>
-                  <th colspan="1">Total Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td rowspan ="2" id="userFrame">TEST USER</td>
-                    <td id="chance0"></td>
-                    <td id="chance1"></td>
-                    <td id="chance2"></td>
-                    <td id="chance3"></td>
-                    <td id="chance4"></td>
-                    <td id="chance5"></td>
-                    <td id="chance6"></td>
-                    <td id="chance7"></td>
-                    <td id="chance8"></td>
-                    <td id="chance9"></td>
-                    <td id="chance10"></td>
-                    <td id="chance11"></td>
-                    <td id="chance12"></td>
-                    <td id="chance13"></td>
-                    <td id="chance14"></td>
-                    <td id="chance15"></td>
-                    <td id="chance16"></td>
-                    <td id="chance17"></td>
-                    <td id="chance18"></td>
-                    <td id="chance19"></td>
-                    <td id="chance20"></td>
-                    <td id="totalScoreFrame" rowspan = "2">MEOW</td>
-                  </tr>
-                    <tr>
-                        <td id="frame1" colspan="2"></td>
-                        <td id="frame2" colspan="2"></td>
-                        <td id="frame3" colspan="2"></td>
-                        <td id="frame4" colspan="2"></td>
-                        <td id="frame5" colspan="2"></td>
-                        <td id="frame6" colspan="2"></td>
-                        <td id="frame7" colspan="2"></td>
-                        <td id="frame8" colspan="2"></td>
-                        <td id="frame9" colspan="2"></td>
-                        <td id="frame10" colspan="3"></td> 
-                    </tr>
-              </tbody>
+          <thead>
+            <tr>
+              <th colspan="1">USER</th>
+              <th colspan="2">Round 1</th>
+              <th colspan="2">Round 2</th>
+              <th colspan="2">Round 3</th>
+              <th colspan="2">Round 4</th>
+              <th colspan="2">Round 5</th>
+              <th colspan="2">Round 6</th>
+              <th colspan="2">Round 7</th>
+              <th colspan="2">Round 8</th>
+              <th colspan="2">Round 9</th>
+              <th colspan="3">Round 10</th>
+              <th colspan="1">Total Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" id="userFrame">TEST USER</td>
+              <td id="chance0"></td>
+              <td id="chance1"></td>
+              <td id="chance2"></td>
+              <td id="chance3"></td>
+              <td id="chance4"></td>
+              <td id="chance5"></td>
+              <td id="chance6"></td>
+              <td id="chance7"></td>
+              <td id="chance8"></td>
+              <td id="chance9"></td>
+              <td id="chance10"></td>
+              <td id="chance11"></td>
+              <td id="chance12"></td>
+              <td id="chance13"></td>
+              <td id="chance14"></td>
+              <td id="chance15"></td>
+              <td id="chance16"></td>
+              <td id="chance17"></td>
+              <td id="chance18"></td>
+              <td id="chance19"></td>
+              <td id="chance20"></td>
+              <td id="totalScoreFrame" rowspan="2">MEOW</td>
+            </tr>
+            <tr>
+              <td id="frame1" colspan="2"></td>
+              <td id="frame2" colspan="2"></td>
+              <td id="frame3" colspan="2"></td>
+              <td id="frame4" colspan="2"></td>
+              <td id="frame5" colspan="2"></td>
+              <td id="frame6" colspan="2"></td>
+              <td id="frame7" colspan="2"></td>
+              <td id="frame8" colspan="2"></td>
+              <td id="frame9" colspan="2"></td>
+              <td id="frame10" colspan="3"></td>
+            </tr>
+          </tbody>
         </table>
-        <p>Press Space Bar to throw the bowling ball. Red = power, green = angle</p>
+      </div>
+      <br />
+      <div class="font white">
+        <p>
+          Press Space Bar to throw the bowling ball. Red = power, green = angle
+        </p>
         <h1>Pins Hit: <span id="pinsHit"></span></h1>
-        <div id="gameBox" style="background-color: aqua; height:300px; width: 150px;">
-          <div id="powerCursor" style="background-color: red; height:20px; width: 20px; position: relative;
-          bottom: 0%;"></div>
-          <div id="angleCursor" style="background-color: rgb(34, 199, 28); height:20px; width: 20px; position: relative;
-          left: 0%;"></div>
+        <div
+          id="gameBox"
+          style="
+            background: rgb(230, 230, 230);
+            background: radial-gradient(
+              circle,
+              rgb(231, 188, 46) 0%,
+              rgb(255, 193, 24) 50%,
+              rgb(187, 136, 25) 100%
+            );
+            height: 300px;
+            width: 150px;
+            box-shadow: 0px 10px 20px 5px #2222225c;
+            border-radius: 5px;
+          "
+        >
+          <div
+            id="powerCursor"
+            style="
+              background-color: red;
+              height: 20px;
+              width: 20px;
+              position: relative;
+              bottom: 0%;
+              border-radius: 50%;
+            "
+          ></div>
+          <div
+            id="angleCursor"
+            style="
+              background-color: rgb(34, 199, 28);
+              height: 20px;
+              width: 20px;
+              position: relative;
+              left: 0%;
+              border-radius: 50%;
+            "
+          ></div>
         </div>
+      </div>
+    </div>
+  </body>
 
-
-    </body>
-
-    <script type="module" src="./app.js" > </script>
+  <script type="module" src="./app.js"></script>
 </html>
