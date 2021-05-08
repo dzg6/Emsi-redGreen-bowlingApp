@@ -12,7 +12,7 @@ body {
 }
 
 .Main_Container {
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   background: rgb(230, 230, 230);
@@ -24,8 +24,9 @@ body {
     rgba(230, 230, 230, 1) 100%
   );
   width: 100%;
+  max-width: 1000px;
   height: 100%;
-  padding-top: 10%;
+  /* padding-top: 10%; */
   padding-bottom: 3%;
   border-radius: 10px;
   border-style: none;
@@ -47,6 +48,7 @@ td {
 
 .font {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
 }
 
 .blue {
@@ -55,4 +57,66 @@ td {
 
 .white {
   color: white;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  height: 150px;
+}
+
+button {
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
+  background-color: rgb(0, 107, 184);
+  margin-right: 15px;
+  border-style: none;
+}
+
+button:hover {
+  background-color: rgb(0, 131, 224);
+  box-shadow: 0px 5px 20px 1px #2222225c;
+}
+
+input {
+  border-radius: 10px;
+  height: 30px;
+  width: 200px;
+  margin-right: 15px;
+  margin-left: 15px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(0, 107, 184);
+  background: rgb(242, 242, 242);
+  background: linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 0%,
+    rgb(233, 233, 233) 100%
+  );
+}
+
+input:hover {
+  background-color: rgb(0, 131, 224);
+  box-shadow: 0px 5px 20px 1px #2222225c;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instructions {
+  text-align: left;
+  width: 20%;
+  margin-left: 20px;
+}
+h2 {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+game-box-div {
+  margin-left: 20px;
 }
