@@ -125,3 +125,33 @@ function powerCursorAnimation() {
 
     }
 }
+
+/*Bekah's functions*/
+export function updateTable()
+{
+   var chances = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15], [16, 17], [18, 19, 20]]
+   var score = 80;
+   var chanceFrame = chances[0][0];
+
+   document.getElementById("chance" + chanceFrame).innerHTML = score;
+   chances[0].splice(chanceFrame, 1); //need to save for player object?
+}
+export function createNewPlayer()
+{
+    var userName = document.getElementById("add-user-input").value;
+    //validation needed for userName input
+
+    var table = document.getElementById("scoreBoard");
+
+    let clone = document.querySelector("#table-body").cloneNode(true);
+    clone.setAttribute("usgrouerFrame", userName);
+    table.append(clone);
+}
+export function deletePlayer()
+{
+    var userName = document.getElementById("delete-user-button").value;
+    //validation needed for userName input
+
+    var user = document.getElementById(userName);
+    user.parentNode.removeChild(user);
+}
