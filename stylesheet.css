@@ -120,3 +120,7 @@ h2 {
 game-box-div {
   margin-left: 20px;
 }
+
+.invalid  {
+  border-color:  red;
+}

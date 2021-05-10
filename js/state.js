@@ -7,18 +7,22 @@ class Player    {
     }
 }
 
-export function createPlayer(playerName){
+function createPlayer(playerName){
     return new Player(playerName);
 }
 
-export class Game  {
+class Game  {
     constructor(playersArray){
         this.players = playersArray.map(player => new Player(player));
     }
 }
 
-export let playerArray = [];
+export let playersArray = [];
 
-export function makePlayerArray(){
-    playerArray.push(document.querySelector('#add-user-input').value);
+export function fillPlayersArray(){
+    playersArray.push(document.querySelector('#add-user-input').value);
+}
+
+export function newGame(playersArray){
+    let game = new Game(playersArray);
 }
