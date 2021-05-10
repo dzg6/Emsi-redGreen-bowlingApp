@@ -1,6 +1,6 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
-import { changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize, invalidate} from './js/game.js';
+import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize,} from './js/game.js';
 import {fillPlayersArray, playersArray, newGame, playersArray} from './js/state';
 
 
