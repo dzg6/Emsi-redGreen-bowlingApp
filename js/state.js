@@ -16,3 +16,9 @@ export class Game  {
         this.players = playersArray.map(player => new Player(player));
     }
 }
+
+export let playerArray = [];
+
+export function makePlayerArray(){
+    playerArray.push(document.querySelector('#add-user-input').value);
+}

@@ -1,6 +1,7 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
 import { changeGameState, startGame, updateTable, createNewPlayer, deletePlayer } from './js/game.js';
+import {Game, createPlayer, makePlayerArray, playerArray} from './js/state';
 
 
 
@@ -26,6 +27,7 @@ startGame()
 updateTable()
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer()); //this may not be working as intended due to the document already having an event listener?
+document.querySelector('#add-user-button').addEventListener('click', makePlayerArray());
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer()); //same issue as above
 
 document.addEventListener('keydown', function (event) {
