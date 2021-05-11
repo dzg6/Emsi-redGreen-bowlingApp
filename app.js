@@ -30,7 +30,7 @@ let addUser = document.querySelector('#add-user-input');
 let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 let pinsHitButton = document.querySelector('#select-pins-button');
-let pinsHit = document.querySelector('#pins-hit');
+let pinInput = document.querySelector('#pin-input');
 let counter = 2;
 let total = 10;
 
@@ -41,12 +41,12 @@ pinsHitButton.addEventListener('click', function(){
         counter = 2;
         total = 10;
     }
-    if(pinsHit.value > total){
-        invalidate(pinsHit);
+    if(pinInput.value > total){
+        invalidate(pinInput);
         return;
     }
     else{
-        total -= pinsHit.value;
+        total -= pinInput.value;
         counter -=1;
     }
 })
@@ -59,7 +59,7 @@ pinsHitButton.addEventListener('click', function(){
 
 addUser.addEventListener('click', normalize(addUser));
 deleteUser.addEventListener('click', normalize(deleteUser));
-pinsHit.addEventListener('click', normalize(pinsHit));
+pinsHit.addEventListener('click', normalize(pinInput));
 endGame.addEventListener('click', storeGame(game));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer); //this may not be working as intended due to the document already having an event listener?
