@@ -147,6 +147,9 @@ export function invalidatePinsInput(){
 }
 
 /*Bekah's functions*/
+export let pinsInput = document.querySelector('#chance-score');
+let total = 10;
+let chances = 2;
 export function updateTable()
 {
    let selectPins = document.getElementById("select-pins-button");
@@ -154,6 +157,7 @@ export function updateTable()
        let playerScore = document.getElementById("chance-score").value;
        document.getElementById("pins-hit-text").innerHTML = "Pins Hit: " + playerScore;
        //validation goes here for select pins input
+       sanitizePinsInput();
        
 
        /*Splices the chance frame bowled out from array to keep track of position in table. chanceFrame = id of each element for easier access*/
@@ -195,12 +199,7 @@ export function deletePlayer()
     user.parentNode.removeChild(user);
 }
 
-let total = 10;
-let chances = 2;
-
-export let pinsInput = document.querySelector('#chance-score');
-
-export function sanitizePinsInput(){
+function sanitizePinsInput(){
     if(total == 0 || chances == 0){
         total =10;
         chances=2;
