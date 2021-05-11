@@ -1,7 +1,7 @@
 class Player    {
     constructor(playerName){
         this.playerName = playerName;
-        this.chances = [];
+        this.chances = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15], [16, 17], [18, 19, 20]];
         this.gameScores = [];
         this.totalScore = 0;
     }
@@ -25,4 +25,12 @@ export function fillPlayersArray(){
 
 export function newGame(playersArray){
     let game = new Game(playersArray);
+    return game;
+}
+
+export function storeGame(game){
+    let counter = 0;
+    let storedGame = localStorage.setItem(`savedGame${counter}`, game);
+    counter++;
+    return storedGame;
 }
