@@ -33,6 +33,7 @@ body {
   box-shadow: 0px 10px 20px 5px #2222225c;
 }
 
+
 table,
 th,
 td {
@@ -81,6 +82,10 @@ button:hover {
   box-shadow: 0px 5px 20px 1px #2222225c;
 }
 
+button:focus{
+  outline: none;
+}
+
 input {
   border-radius: 10px;
   height: 30px;
@@ -103,6 +108,10 @@ input:hover {
   box-shadow: 0px 5px 20px 1px #2222225c;
 }
 
+input:focus{
+  outline: none;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
@@ -113,6 +122,20 @@ input:hover {
   width: 20%;
   margin-left: 20px;
 }
+
+.pin-input{
+  font-size: larger;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  width: 50px;
+  margin-left: 50px;
+}
+
+
+h1{
+  margin-right: 400px;
+}
+
 h2 {
   margin-right: 10px;
   margin-left: 10px;
@@ -121,6 +144,11 @@ game-box-div {
   margin-left: 20px;
 }
 
-.invalid  {
-  border-color:  red;
+
+#User-Input-Menu{
+  display: inline;
+}
+
+#End-Game-Menu{
+  display: none;
 }
