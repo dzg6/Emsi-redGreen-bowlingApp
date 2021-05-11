@@ -43,8 +43,8 @@
           <div class="cell space-between">
             <div class="font blue space-between">
               <div>
-                <form action="" onsubmit="event.preventDefault(); validate();">
-                  <input type="number" id="chance-score" class="pin-input blue">
+                <form action="" onsubmit="event.preventDefault();">
+                  <input type="number" id="chance-score" class="pin-input blue" min="0" max="10" pattern="[0-9]">
                   <button id="select-pins-button" class="white font">Select Pins</button>
                 </form>
               </div>
@@ -129,43 +129,43 @@
                 <th colspan="1">Total Score</th>
               </tr>
             </thead>
-            <tbody id="tbody">
+            <tbody id="tbody" class="hide">
               <tr>
                 <td rowspan="2" id="playerName"></td>
-                <td id="chance0"></td>
-                <td id="chance1"></td>
-                <td id="chance2"></td>
-                <td id="chance3"></td>
-                <td id="chance4"></td>
-                <td id="chance5"></td>
-                <td id="chance6"></td>
-                <td id="chance7"></td>
-                <td id="chance8"></td>
-                <td id="chance9"></td>
-                <td id="chance10"></td>
-                <td id="chance11"></td>
-                <td id="chance12"></td>
-                <td id="chance13"></td>
-                <td id="chance14"></td>
-                <td id="chance15"></td>
-                <td id="chance16"></td>
-                <td id="chance17"></td>
-                <td id="chance18"></td>
-                <td id="chance19"></td>
-                <td id="chance20"></td>
-                <td id="totalScoreFrame" rowspan="2"></td>
+                <td class="chance0"></td>
+                <td class="chance1"></td>
+                <td class="chance2"></td>
+                <td class="chance3"></td>
+                <td class="chance4"></td>
+                <td class="chance5"></td>
+                <td class="chance6"></td>
+                <td class="chance7"></td>
+                <td class="chance8"></td>
+                <td class="chance9"></td>
+                <td class="chance10"></td>
+                <td class="chance11"></td>
+                <td class="chance12"></td>
+                <td class="chance13"></td>
+                <td class="chance14"></td>
+                <td class="chance15"></td>
+                <td class="chance16"></td>
+                <td class="chance17"></td>
+                <td class="chance18"></td>
+                <td class="chance19"></td>
+                <td class="chance20"></td>
+                <td class="totalScoreFrame" rowspan="2"></td>
               </tr>
               <tr>
-                <td id="frame1" colspan="2"></td>
-                <td id="frame2" colspan="2"></td>
-                <td id="frame3" colspan="2"></td>
-                <td id="frame4" colspan="2"></td>
-                <td id="frame5" colspan="2"></td>
-                <td id="frame6" colspan="2"></td>
-                <td id="frame7" colspan="2"></td>
-                <td id="frame8" colspan="2"></td>
-                <td id="frame9" colspan="2"></td>
-                <td id="frame10" colspan="3"></td>
+                <td class="frame1" colspan="2"></td>
+                <td class="frame2" colspan="2"></td>
+                <td class="frame3" colspan="2"></td>
+                <td class="frame4" colspan="2"></td>
+                <td class="frame5" colspan="2"></td>
+                <td class="frame6" colspan="2"></td>
+                <td class="frame7" colspan="2"></td>
+                <td class="frame8" colspan="2"></td>
+                <td class="frame9" colspan="2"></td>
+                <td class="frame10" colspan="3"></td>
               </tr>
             </tbody>
           </table>

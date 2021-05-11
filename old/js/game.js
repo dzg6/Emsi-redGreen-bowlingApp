@@ -1,5 +1,3 @@
-import { playersArray } from "./state.js";
-
 var x = 1;
 var xState = true;
 var gameState = 'power';
@@ -52,7 +50,7 @@ function calculatePins() {
     if (score.power <= 5) {
         pins = 10;
     } else if (score.power >= 5 && score.power <= 10) {
-        pins = 9 + getRandomInt(3);
+        pins = 8 + getRandomInt(3);
     } else if (score.power >= 10 && score.power <= 19) {
         pins = 6 + getRandomInt(4);
     } else if (score.power >= 20 && score.power <= 69) {
@@ -126,67 +124,4 @@ function powerCursorAnimation() {
         xState ? x++ : x--;
 
     }
-}
-
-export function normalize(elem){
-    elem.classList.remove('invalid');
-}
-export function invalidate(elem){
-    elem.classList.add('invalid');
-}
-
-/*Bekah's functions*/
-export function updateTable()
-{
-   let selectPins = document.getElementById("select-pins-button");
-   selectPins.addEventListener("click", function() {
-       let playerScore = document.getElementById("chance-score").value;
-       document.getElementById("pins-hit-text").innerHTML = "Pins Hit: " + playerScore;
-       //validation goes here for select pins input
-       
-
-       /*Splices the chance frame bowled out from array to keep track of position in table. chanceFrame = id of each element for easier access*/
-       let chanceFrame = playersArray[activePlayer].chances[0][0]; //not sure if this is correct, but activePlayer is the index of the active player name in the playersArray
-       document.getElementById("chance" + chanceFrame).innerHTML = playerScore;
-       playersArray[activePlayer].chances[0].splice(chanceFrame,1);
-       alert(playersArray.chances);
-
-   });
-}
-export function createNewPlayer()
-{
-    var userName = document.getElementById("add-user-input");
-
-    if(userName.value.length > 15){
-        invalidate(userName);
-        return;
-    }
-    
-    //need to add this new player to player array here
-
-    
-
-
-    var table = document.getElementById("scoreBoard");
-    let clone = document.querySelector("#tbody").cloneNode(true);
-    clone.setAttribute("id", userName.value);
-    clone.classList.remove("hide");
-    clone.querySelector("#playerName").innerHTML = userName.value;
-    table.appendChild(clone);
-
-}
-
-export function deletePlayer()
-{   
-    var userName = document.getElementById("delete-user-input");
-    //validation needed for userName input
-    
-    if(!playersArray.includes(userName.value)){
-        invalidate(userName);
-        return;
-    }
-    var user = document.getElementById(userName.value);
-    let arrayPosition = playersArray.findIndex(element => element === userName.value)
-    playersArray.splice(arrayPosition, arrayPosition)
-    user.parentNode.removeChild(user);
 }
