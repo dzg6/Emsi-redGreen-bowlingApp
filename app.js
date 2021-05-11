@@ -19,6 +19,7 @@ let framesTotals = score.framesTotals(frames);
 //Game
 let pins;
 
+/*Commented out to use input instead*/
 //startGame()
 updateTable()
 
@@ -26,7 +27,7 @@ let addUser = document.querySelector('#add-user-input');
 let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 
-/*Commented this out as it was caused errors*/
+/*Commented this out as it was caused errors, not sure what is going on here*/
 //addUser.addEventListener('click', normalize(addUser)); 
 //deleteUser.addEventListener('click', normalize(deleteUser));
 //endGame.addEventListener('click', storeGame(game));
