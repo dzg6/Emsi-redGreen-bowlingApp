@@ -213,3 +213,8 @@ function sanitizePinsInput(){
         chances -= 1;
     }
 }
+
+function loadGame(number){
+    let loadedGame = JSON.parse(localStorage.getItem(`savedGame${number}`));
+    return loadedGame;
+}

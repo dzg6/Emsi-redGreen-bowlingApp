@@ -28,8 +28,9 @@ export function newGame(playersArray){
     return game;
 }
 
+let counter = 0;
+
 export function storeGame(game){
-    let counter = 0;
     let storedGame = localStorage.setItem(`savedGame${counter}`, game);
     counter++;
     return storedGame;

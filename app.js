@@ -29,7 +29,6 @@ let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 
 
-/*Commented this out as it was caused errors, not sure what is going on here*/
 addUser.addEventListener('click', function(){
     normalize(addUser);
 }); 
@@ -38,7 +37,9 @@ deleteUser.addEventListener('click', function(){
 });
 pinsInput.addEventListener('click', normalizePinsInput);
 
-//endGame.addEventListener('click', storeGame(game));
+endGame.addEventListener('click', function(){
+    storeGame(JSON.stringify(game));
+});
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
 document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
