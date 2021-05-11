@@ -33,7 +33,7 @@ addUser.addEventListener('click', normalize(addUser));
 deleteUser.addEventListener('click', normalize(deleteUser));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer()); //this may not be working as intended due to the document already having an event listener?
-document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray());
+document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
 document.querySelector('#start-game-button').addEventListener('click', newGame(playersArray));
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer()); //same issue as above
 
