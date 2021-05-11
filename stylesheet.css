@@ -165,3 +165,6 @@ game-box-div {
   font-size: small;
   color: red;
 }
+.hide{
+  display: none;
+}

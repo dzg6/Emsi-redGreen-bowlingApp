@@ -1,62 +1,95 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
-import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize, pinsInput, normalizePinsInput,} from './js/game.js';
-import {playersArray, newGame, storeGame} from './js/state.js';
+import { changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize, } from './js/game.js';
+import { fillPlayersArray, playersArray, newGame, storeGame } from './js/state.js';
 
 
 
 let view = new Views;
 let score = new Scores;
-let game;
-// let game = new Game;
+var game;
 
-//Dummy Data Chances
-const chances = [1,5,0,10,10,10,10,0,6,5,2,10,2,7];
-// const chances = [10,10,10,10,10,10,10,10,10,10,10,10];
+//starts a new game based on the players created
+document.querySelector('#start-game-button').addEventListener('click', function () {
+    game = newGame(playersArray);
+});
 
-let frames = score.getFrameScore(chances);
-let framesTotals = score.framesTotals(frames);
 
-//Game
-let pins;
+
+//PINS MANAGEMENT
+
+let pinsHit;
+//Hard Pin Selector
+document.querySelector('#select-pins-button').addEventListener('click', function () {
+    let pinsHit = document.getElementById('chance-score').value;
+    updateScore(pinsHit)
+    pinsHit = null;
+
+});
+//Game Selector
+document.addEventListener('keydown', function (event) {
+    if (event.key === ' ') {
+        pinsHit = changeGameState(game.pinsRemaining);
+    }
+    if (pinsHit || pinsHit == 0) {
+        updateScore(pinsHit)
+        pinsHit = null;
+    }
+});
+
+function updateScore(pins) {
+    console.log(game)
+    game.players[game.activePlayer].chances.push(Number(pins));
+    let frames = score.getFrameScore(game.players[game.activePlayer].chances);
+    let framesTotals = score.framesTotals(frames);
+    view.updateView(game.activePlayer, game.players[game.activePlayer].chances, framesTotals)
+    frameManagement(game, pins);
+
+}
+
+function frameManagement(game, pins) {
+    console.log ('pins hit: ' + pins)
+
+    if (pins == 10) {
+        game.frameChances = 1;
+        game.turns.push(game.activePlayer);
+        game.activePlayer = game.turns.shift();
+        game.pinsRemaining = 10;
+    } else if (game.frameChances >= 2) {
+        game.frameChances = 1;
+        game.turns.push(game.activePlayer);
+        game.activePlayer = game.turns.shift();
+        game.pinsRemaining = 10;
+    } else {
+        game.frameChances++;
+        game.pinsRemaining = game.pinsRemaining - pins;
+
+    }
+
+}
+
+
 
 /*Commented out to use input instead*/
-//startGame()
-updateTable()
+startGame()
+// updateTable()
 
 let addUser = document.querySelector('#add-user-input');
 let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 
-
-addUser.addEventListener('click', function(){
-    normalize(addUser);
-}); 
-deleteUser.addEventListener('click', function(){
-    normalize(deleteUser)
-});
-pinsInput.addEventListener('click', normalizePinsInput);
-
-endGame.addEventListener('click', function(){
-    storeGame(JSON.stringify(game));
-});
+/*Commented this out as it was caused errors, not sure what is going on here*/
+//addUser.addEventListener('click', normalize(addUser)); 
+//deleteUser.addEventListener('click', normalize(deleteUser));
+//endGame.addEventListener('click', storeGame(game));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
-document.querySelector('#start-game-button').addEventListener('click', function(){
-    game = newGame(playersArray);
-});
+document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
+var tes;
+
+
+
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer);
 
 
 
-document.addEventListener('keydown', function (event) {
-    if (event.key === ' ') {
-     pins = changeGameState();
-}
-if(pins){
-document.getElementById('pinsHit').innerText = pins;
-pins = null;
-}
-});
-
- view.updateView(chances, framesTotals)

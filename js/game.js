@@ -15,7 +15,7 @@ var easy;
 var medium;
 var hard;
 
-export function changeGameState() {
+export function changeGameState(pinsRemaining) {
     if (gameState === 'power') {
         gameState = 'angle';
         score.power = x;
@@ -25,7 +25,7 @@ export function changeGameState() {
         gameState = 'end';
         score.angle = x;
         x = 1;
-        let chance = calculatePins();
+        let chance = calculatePins(pinsRemaining);
         return chance
     } else if (gameState === 'end') {
         gameState = 'power';
@@ -39,7 +39,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-function calculatePins() {
+function calculatePins(pinsRemaining) {
     let pins = 0;
     /*  Note: power had to flip due to x translating top
     *  if power is within 95-100 = 'pin gain is 10,  perfect'
@@ -52,12 +52,12 @@ function calculatePins() {
     if (score.power <= 5) {
         pins = 10;
     } else if (score.power >= 5 && score.power <= 10) {
-        pins = 9 + getRandomInt(3);
+        pins = 8 + getRandomInt(3);
     } else if (score.power >= 10 && score.power <= 19) {
         pins = 6 + getRandomInt(4);
-    } else if (score.power >= 20 && score.power <= 69) {
+    } else if (score.power >= 20 && score.power <= 89) {
         pins = 2 + getRandomInt(6);
-    } else if (score.power >= 70) {
+    } else if (score.power >= 90) {
         pins = getRandomInt(5);
     }
 
@@ -87,7 +87,20 @@ function calculatePins() {
     //TO ADD when we are bowling by frames
     // pins * 10 to get thje percentage hit. 
     // Now you knock down the percentage of pins left standing to avoid breaking 10
-    // This also stops the super easy spares from the current system
+    if(pinsRemaining != 10 ){
+        // console.log('pinsR:')
+        // console.log(pinsRemaining)
+        // console.log(pins * .1)
+        // console.log(( pinsRemaining * (pins * .1) ))
+        // console.log((pinsRemaining / (pins * 10)));
+        let testPins = pinsRemaining * (pins * .1);
+        console.log(testPins)
+        if(testPins == 0) {
+            pins = 0;
+        }else{   pins = Math.floor(pinsRemaining * (pins * .1));
+    }
+}
+    console.log(pins)
 
     return pins
 
@@ -176,10 +189,11 @@ export function createNewPlayer()
         invalidate(userName);
         return;
     }
-    playersArray.push(userName.value);
+    // playersArray.push(userName.value);
     var table = document.getElementById("scoreBoard");
     let clone = document.querySelector("#tbody").cloneNode(true);
     clone.setAttribute("id", userName.value);
+    clone.classList.remove("hide");
     clone.querySelector("#playerName").innerHTML = userName.value;
     table.appendChild(clone);
 
@@ -195,9 +209,9 @@ export function deletePlayer()
         return;
     }
     var user = document.getElementById(userName.value);
+    let arrayPosition = playersArray.findIndex(element => element === userName.value)
+    playersArray.splice(arrayPosition, arrayPosition)
     user.parentNode.removeChild(user);
-    let index = playersArray.indexOf(userName.value);
-    playersArray.splice(index, 1);
 }
 
 function sanitizePinsInput(){
