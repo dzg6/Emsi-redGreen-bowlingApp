@@ -7,6 +7,7 @@ import {fillPlayersArray, playersArray, newGame, storeGame} from './js/state.js'
 
 let view = new Views;
 let score = new Scores;
+let game;
 // let game = new Game;
 
 //Dummy Data Chances
@@ -34,8 +35,8 @@ let endGame = document.querySelector('#end-game-button');
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
 document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
-let game = document.querySelector('#start-game-button').addEventListener('click', function(){
-    newGame(playersArray);
+document.querySelector('#start-game-button').addEventListener('click', function(){
+    game = newGame(playersArray);
 });
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer);
 
