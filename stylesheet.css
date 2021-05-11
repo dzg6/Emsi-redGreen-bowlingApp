@@ -156,3 +156,12 @@ game-box-div {
 .invalid  {
   border-color: red;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.message  {
+  font-size: small;
+  color: red;
+}

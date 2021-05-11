@@ -130,9 +130,11 @@ function powerCursorAnimation() {
 
 export function normalize(elem){
     elem.classList.remove('invalid');
+    elem.nextElementSibling.classList.add('hidden');
 }
 export function invalidate(elem){
     elem.classList.add('invalid');
+    elem.nextElementSibling.classList.remove('hidden')
 }
 
 /*Bekah's functions*/
