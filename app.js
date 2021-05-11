@@ -29,8 +29,12 @@ let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 
 /*Commented this out as it was caused errors, not sure what is going on here*/
-//addUser.addEventListener('click', normalize(addUser)); 
-//deleteUser.addEventListener('click', normalize(deleteUser));
+addUser.addEventListener('click', function(){
+    normalize(addUser);
+}); 
+deleteUser.addEventListener('click', function(){
+    normalize(deleteUser)
+});
 //endGame.addEventListener('click', storeGame(game));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);

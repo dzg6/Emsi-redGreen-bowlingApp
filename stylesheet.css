@@ -152,3 +152,7 @@ game-box-div {
 #End-Game-Menu{
   display: none;
 }
+
+.invalid  {
+  border-color: red;
+}

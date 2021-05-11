@@ -157,15 +157,11 @@ export function createNewPlayer()
 {
     var userName = document.getElementById("add-user-input");
 
-    if(userName.value.length > 15){
+    if(!userName.value.match(/^([a-zA-Z0-9]{3,15})$/)){
         invalidate(userName);
         return;
     }
     
-    //need to add this new player to player array here
-
-
-
 
     var table = document.getElementById("scoreBoard");
     let clone = document.querySelector("#tbody").cloneNode(true);
