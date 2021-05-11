@@ -1,6 +1,6 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
-import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize,} from './js/game.js';
+import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize, sanitizePinsInput, pinsInput, normalizePinsInput,} from './js/game.js';
 import {fillPlayersArray, playersArray, newGame, storeGame} from './js/state.js';
 
 
@@ -27,6 +27,7 @@ updateTable()
 let addUser = document.querySelector('#add-user-input');
 let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
+let pinsButton = document.querySelector('#select-pins-button');
 
 /*Commented this out as it was caused errors, not sure what is going on here*/
 addUser.addEventListener('click', function(){
@@ -35,6 +36,8 @@ addUser.addEventListener('click', function(){
 deleteUser.addEventListener('click', function(){
     normalize(deleteUser)
 });
+pinsInput.addEventListener('click', normalizePinsInput);
+
 //endGame.addEventListener('click', storeGame(game));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
@@ -43,6 +46,7 @@ document.querySelector('#start-game-button').addEventListener('click', function(
     game = newGame(playersArray);
 });
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer);
+pinsButton.addEventListener('click', sanitizePinsInput);
 
 
 

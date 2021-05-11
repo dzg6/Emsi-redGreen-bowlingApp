@@ -136,6 +136,15 @@ export function invalidate(elem){
     elem.classList.add('invalid');
     elem.nextElementSibling.classList.remove('hidden')
 }
+let pinsError = document.querySelector('#pins-error');
+export function normalizePinsInput(){
+    pinsInput.classList.remove('invalid');
+    pinsError.classList.add('hidden');
+}
+export function invalidatePinsInput(){
+    pinsInput.classList.add('invalid');
+    pinsError.classList.remove('hidden');
+}
 
 /*Bekah's functions*/
 export function updateTable()
@@ -184,4 +193,24 @@ export function deletePlayer()
     }
     var user = document.getElementById(userName.value);
     user.parentNode.removeChild(user);
+}
+
+let total = 10;
+let chances = 2;
+
+export let pinsInput = document.querySelector('#chance-score');
+
+export function sanitizePinsInput(){
+    if(total == 0 || chances == 0){
+        total =10;
+        chances=2;
+    }
+    if(pinsInput.value > total || pinsInput.value < 0){
+        invalidatePinsInput();
+        return;
+    }
+    else{
+        total -= pinsInput.value;
+        chances -= 1;
+    }
 }
