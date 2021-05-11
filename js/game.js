@@ -1,3 +1,5 @@
+import { playersArray } from "./state.js";
+
 var x = 1;
 var xState = true;
 var gameState = 'power';
@@ -126,20 +128,30 @@ function powerCursorAnimation() {
     }
 }
 
-/*Bekah's functions*/
 export function normalize(elem){
     elem.classList.remove('invalid');
 }
 export function invalidate(elem){
     elem.classList.add('invalid');
 }
+
+/*Bekah's functions*/
 export function updateTable()
 {
-   var score = 80;
-   var chanceFrame = player.chances[0][0];
+   let selectPins = document.getElementById("select-pins-button");
+   selectPins.addEventListener("click", function() {
+       let playerScore = document.getElementById("chance-score").value;
+       document.getElementById("pins-hit-text").innerHTML = "Pins Hit: " + playerScore;
+       //validation goes here for select pins input
+       
 
-   document.getElementById("chance" + chanceFrame).innerHTML = score;
-   chances[0].splice(chanceFrame, 1); //need to save for player object?
+       /*Splices the chance frame bowled out from array to keep track of position in table. chanceFrame = id of each element for easier access*/
+       let chanceFrame = playersArray[activePlayer].chances[0][0]; //not sure if this is correct, but activePlayer is the index of the active player name in the playersArray
+       document.getElementById("chance" + chanceFrame).innerHTML = playerScore;
+       playersArray[activePlayer].chances[0].splice(chanceFrame,1);
+       alert(playersArray.chances);
+
+   });
 }
 export function createNewPlayer()
 {
@@ -150,7 +162,10 @@ export function createNewPlayer()
         return;
     }
     
-    //createNewPlayer(userName.value);
+    //need to add this new player to player array here
+
+
+
 
     var table = document.getElementById("scoreBoard");
     let clone = document.querySelector("#tbody").cloneNode(true);
@@ -162,14 +177,13 @@ export function createNewPlayer()
 
 export function deletePlayer()
 {   
+    var userName = document.getElementById("delete-user-input");
+    //validation needed for userName input
+    
     if(!playersArray.includes(userName.value)){
         invalidate(userName);
         return;
     }
-
-    var userName = document.getElementById("delete-user-input");
-    //validation needed for userName input
-
     var user = document.getElementById(userName.value);
     user.parentNode.removeChild(user);
 }

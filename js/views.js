@@ -11,9 +11,7 @@ export class Views {
         frames.forEach((frame, index) => {
             document.getElementById('frame' + (index + 1)).innerHTML = frame;
         })
-
-
-        
+   
         //Updates all chances in the row
         chances.reduce((chanceRound, pins, index, array) => {
 
