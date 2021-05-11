@@ -150,7 +150,7 @@ export function createNewPlayer()
         return;
     }
     
-    createNewPlayer(userName.value);
+    //createNewPlayer(userName.value);
 
     var table = document.getElementById("scoreBoard");
     let clone = document.querySelector("#tbody").cloneNode(true);

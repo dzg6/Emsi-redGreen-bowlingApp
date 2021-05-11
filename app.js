@@ -1,7 +1,7 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
 import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize,} from './js/game.js';
-import {fillPlayersArray, playersArray, newGame, storeGame} from './js/state';
+import {fillPlayersArray, playersArray, newGame, storeGame} from './js/state.js';
 
 
 
@@ -23,16 +23,16 @@ let framesTotals = score.framesTotals(frames);
 //Game
 let pins;
 
-startGame()
-updateTable()
+//startGame()
+//updateTable()
 
 let addUser = document.querySelector('#add-user-input');
 let deleteUser = document.querySelector('#delete-user-input');
 let endGame = document.querySelector('#end-game-button');
 
-addUser.addEventListener('click', normalize(addUser));
-deleteUser.addEventListener('click', normalize(deleteUser));
-endGame.addEventListener('click', storeGame(game));
+//addUser.addEventListener('click', normalize(addUser));
+//deleteUser.addEventListener('click', normalize(deleteUser));
+//endGame.addEventListener('click', storeGame(game));
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer); //this may not be working as intended due to the document already having an event listener?
 document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
