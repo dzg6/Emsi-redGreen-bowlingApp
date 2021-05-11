@@ -127,6 +127,12 @@ function powerCursorAnimation() {
 }
 
 /*Bekah's functions*/
+export function normalize(elem){
+    elem.classList.remove('invalid');
+}
+export function invalidate(elem){
+    elem.classList.add('invalid');
+}
 export function updateTable()
 {
    var chances = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15], [16, 17], [18, 19, 20]]
@@ -138,20 +144,30 @@ export function updateTable()
 }
 export function createNewPlayer()
 {
-    var userName = document.getElementById("add-user-input").value;
+    if(userName.value.length > 15){
+        invalidate(userName);
+        return;
+    }
+
+    var userName = document.getElementById("add-user-input");
     //validation needed for userName input
 
     var table = document.getElementById("scoreBoard");
 
     let clone = document.querySelector("#table-body").cloneNode(true);
-    clone.setAttribute("usgrouerFrame", userName);
+    clone.setAttribute("usgrouerFrame", userName.value);
     table.append(clone);
 }
 export function deletePlayer()
-{
-    var userName = document.getElementById("delete-user-button").value;
+{   
+    if(!playersArray.includes(userName.value)){
+        invalidate(userName);
+        return;
+    }
+
+    var userName = document.getElementById("delete-user-input");
     //validation needed for userName input
 
-    var user = document.getElementById(userName);
+    var user = document.getElementById(userName.value);
     user.parentNode.removeChild(user);
 }
