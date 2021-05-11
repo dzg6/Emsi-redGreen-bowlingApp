@@ -135,29 +135,31 @@ export function invalidate(elem){
 }
 export function updateTable()
 {
-   var chances = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15], [16, 17], [18, 19, 20]]
    var score = 80;
-   var chanceFrame = chances[0][0];
+   var chanceFrame = player.chances[0][0];
 
    document.getElementById("chance" + chanceFrame).innerHTML = score;
    chances[0].splice(chanceFrame, 1); //need to save for player object?
 }
 export function createNewPlayer()
 {
+    var userName = document.getElementById("add-user-input");
+
     if(userName.value.length > 15){
         invalidate(userName);
         return;
     }
-
-    var userName = document.getElementById("add-user-input");
-    //validation needed for userName input
+    
+    createNewPlayer(userName.value);
 
     var table = document.getElementById("scoreBoard");
+    let clone = document.querySelector("#tbody").cloneNode(true);
+    clone.setAttribute("id", userName.value);
+    clone.querySelector("#playerName").innerHTML = userName.value;
+    table.appendChild(clone);
 
-    let clone = document.querySelector("#table-body").cloneNode(true);
-    clone.setAttribute("usgrouerFrame", userName.value);
-    table.append(clone);
 }
+
 export function deletePlayer()
 {   
     if(!playersArray.includes(userName.value)){
