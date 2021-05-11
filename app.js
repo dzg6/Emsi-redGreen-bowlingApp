@@ -1,7 +1,7 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
 import {changeGameState, startGame, updateTable, createNewPlayer, deletePlayer, normalize, pinsInput, normalizePinsInput,} from './js/game.js';
-import {fillPlayersArray, playersArray, newGame, storeGame} from './js/state.js';
+import {playersArray, newGame, storeGame} from './js/state.js';
 
 
 
@@ -42,7 +42,6 @@ endGame.addEventListener('click', function(){
 });
 
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
-document.querySelector('#add-user-button').addEventListener('click', fillPlayersArray);
 document.querySelector('#start-game-button').addEventListener('click', function(){
     game = newGame(playersArray);
 });

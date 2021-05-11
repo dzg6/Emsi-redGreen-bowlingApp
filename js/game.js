@@ -172,12 +172,11 @@ export function createNewPlayer()
 {
     var userName = document.getElementById("add-user-input");
 
-    if(!userName.value.match(/^([a-zA-Z0-9]{3,15})$/)){
+    if(!userName.value.match(/^([a-zA-Z0-9]{3,15})$/) || playersArray.includes(userName.value)){
         invalidate(userName);
         return;
     }
-    
-
+    playersArray.push(userName.value);
     var table = document.getElementById("scoreBoard");
     let clone = document.querySelector("#tbody").cloneNode(true);
     clone.setAttribute("id", userName.value);
@@ -197,6 +196,8 @@ export function deletePlayer()
     }
     var user = document.getElementById(userName.value);
     user.parentNode.removeChild(user);
+    let index = playersArray.indexOf(userName.value);
+    playersArray.splice(index, 1);
 }
 
 function sanitizePinsInput(){

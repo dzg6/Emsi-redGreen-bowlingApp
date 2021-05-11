@@ -19,10 +19,6 @@ class Game  {
 
 export let playersArray = [];
 
-export function fillPlayersArray(){
-    playersArray.push(document.querySelector('#add-user-input').value);
-}
-
 export function newGame(playersArray){
     let game = new Game(playersArray);
     return game;
