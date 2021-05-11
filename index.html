@@ -15,8 +15,6 @@
                   name="add-user"
                   id="add-user-input"
                   class="blue font"
-                  required
-                  pattern="[a-zA-Z0-9]{3,15}"
                 />
               </form>
               <button class="font white" id="add-user-button">Add User</button>
@@ -42,9 +40,17 @@
           </div>
         </div>
         <div id="End-Game-Menu">
-          <div class="cell">
+          <div class="cell space-between">
             <div class="font blue space-between">
-              <div class="instructions">
+              <div>
+                <form action="">
+                  <input type="number">
+                  <button id"select-pins-button" class="white font">Select Pins</button>
+                </form>
+              </div>
+              
+              <!-- Mark's Game Compnonent Below -->
+              <!-- <div class="instructions">
                 <p>
                   Press Space Bar to throw the bowling ball. Red = power, green
                   = angle
@@ -95,7 +101,10 @@
                     border-radius: 50%;
                   "
                 ></div>
-              </div>
+              </div> -->
+            </div>
+            <div class="font">
+              <h1 id="pins-hit-text">Pins Hit:</h1>
             </div>
             <div class="cell" id="end-game-cell">
               <button class="font white" id="end-game-button">End Game</button>
