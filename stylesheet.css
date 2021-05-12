@@ -118,26 +118,41 @@ input:focus{
 }
 
 .instructions {
-  text-align: left;
-  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 15%;
   margin-left: 20px;
+  margin-right: 5px;
 }
 
 .pin-input{
+  
   font-size: larger;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
-  width: 50px;
-  margin-left: 50px;
+  width: 30px;
+  /* margin-left: 50px; */
 }
 
+.pin-input-cell{
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 h1{
-  margin-right: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
   font-size: 1.5em;
 }
 
 h2 {
+  
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -184,11 +199,11 @@ game-box-div {
   )
   ;
   height: 80px;
-  width: 400px;
+  width: 300px;
   box-shadow: 0px 5px 10px 5px #22222218;
   border-radius: 5px;
   border-style: solid;
   border-color: rgb(0, 107, 184);
-  margin-right: 90px;
+  margin-right: 20px;
   margin-top: 20px;
 }
