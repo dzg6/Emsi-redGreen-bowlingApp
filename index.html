@@ -52,29 +52,11 @@
               <!-- Mark's Game Compnonent Below -->
               <div class="instructions">
                 <p>
-                  Press Space Bar twice to throw the bowling ball.
+                  Press 'X' twice to throw the bowling ball.
                 </p>
               </div>
               <div
-                id="gameBox"
-                style="
-                  background: rgb(250, 162, 0);
-                  background: radial-gradient(
-                    circle,
-                    rgb(255, 213, 124) 0%,
-                    rgb(241, 184, 77) 60%,
-                    rgba(230, 158, 24, 0.823) 100%
-                  );
-                  height: 80px;
-                  width: 400px;
-                  box-shadow: 0px 5px 10px 5px #22222218;
-                  border-radius: 5px;
-                  border-style: solid;
-                  border-color: rgb(0, 107, 184);
-                  margin-right: 90px;
-                  margin-top: 20px;
-                "
-              >
+                id="gameBox">
                 <div
                   id="powerCursor"
                   style="
@@ -100,7 +82,8 @@
               </div>
             </div>
             <div class="font">
-              <h1 id="pins-hit-text">Pins Hit:</h1>
+              <h1>Bowler: <span id='activePlayer'></span></h1>
+              <h1 >Pins Hit:<span id="pins-hit-text"></span></h1>
             </div>
             <div class="cell" id="end-game-cell">
               <button class="font white" id="end-game-button">End Game</button>

@@ -14,7 +14,6 @@ function createPlayer(playerName){
 
 export class Game  {
     constructor(playersArray){
-        // this.players = playersArray.map(player => new Player(player));
         this.players = {};
         this.frameChances = 1;
         this.turns = playersArray;
@@ -27,30 +26,11 @@ export class Game  {
             this.players[player] = new Player(player)
         });   
     }
-    // addPlayer(){
-    //         let player = document.querySelector('#add-user-input').value
-    //         if(!this.players[player]){
-    //             this.players[player] = new Player(player)
-    //         }
-    //     }
-    // removePlayer(){
-    //         let player = document.querySelector('#add-user-input').value
-    //         if(this.players[player]){
-    //             delete this.players[player];
-    //         }
-    //     }
     
 }
 
 
 export let playersArray = [];
-// export let playersObject = {};
-
-export function fillPlayersArray(){
-    let player = document.querySelector('#add-user-input').value
-    playersArray.push(player);
-    // playersObject[player] = {};
-}
 
 export function newGame(playersArray){
     let game = new Game(playersArray);

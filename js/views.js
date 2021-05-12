@@ -6,7 +6,9 @@ export class Views {
         //updates the total Score Box
         let playerTable = document.getElementById(user);
         // playerTable.getElementsByClassName('chance' + (0 + 1))[0].innerHTML = 'here';
+        if(frames[frames.length - 1]){
         playerTable.getElementsByClassName('totalScoreFrame')[0].innerHTML = frames[frames.length - 1];
+        }
 
 
         //Updates the Frame totals

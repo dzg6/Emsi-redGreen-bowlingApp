@@ -6,7 +6,7 @@
 
 export class Scores {
 
-    getFrameScore(chances) {
+    getFrameScore(chances, lastFrame) {
         let frames = [];
 
         chances.reduce((chanceIndex, currentValue, index, array) => {
@@ -32,7 +32,7 @@ export class Scores {
                     //open frame
                 } else {
 
-                    if (c1 || c1 === 0) {
+                    if (c1 && chanceIndex < 19|| c1 === 0 && chanceIndex < 19) {
                         frames.push((c0 + c1))
                         return chanceIndex + 2;
                     }
