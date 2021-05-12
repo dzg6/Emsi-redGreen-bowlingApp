@@ -1,7 +1,7 @@
 import { Views } from './js/views.js';
 import { Scores } from './js/scores.js';
 import { changeGameState, startGame } from './js/game.js';
-import { createNewPlayer, deletePlayer, normalize, } from './js/inputs.js';
+import { createNewPlayer, deletePlayer, normalize, sanitizePinsInput, normalizePinsInput} from './js/inputs.js';
 import { playersArray, newGame, storeGame } from './js/state.js';
 import { Frame } from './js/frames.js';
 
@@ -18,6 +18,19 @@ let pinsHit;
 //Intro page to creating and deleting players
 document.getElementById("add-user-button").addEventListener("click", createNewPlayer);
 document.getElementById("delete-user-button").addEventListener("click", deletePlayer);
+let userInput = document.getElementById('add-user-input');
+let deleteUser = document.getElementById('delete-user-input');
+let pinsInput = document.getElementById('chance-score');
+userInput.addEventListener('click', function(){
+    normalize(userInput);
+});
+deleteUser.addEventListener('click', function(){
+    normalize(deleteUser);
+});
+pinsInput.addEventListener('click', function(){
+    normalizePinsInput();
+});
+
 
 
 
@@ -42,6 +55,7 @@ document.querySelector('#start-game-button').addEventListener('click', function 
 
 //Hard Pin Selector
 document.querySelector('#select-pins-button').addEventListener('click', function () {
+    sanitizePinsInput();
     pinsHit = document.getElementById('chance-score').value;
     if(game.pinsRemaining >= pinsHit){
     updateScore(pinsHit)

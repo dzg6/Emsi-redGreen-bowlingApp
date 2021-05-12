@@ -9,24 +9,26 @@
         <div id="User-Input-Menu">
           <div class="cell space-between">
             <div class="cell" id="add-player-cell">
-              <form action="">
+              <form action="" onsubmit="event.preventDefault();">
                 <input
                   type="text"
                   name="add-user"
                   id="add-user-input"
                   class="blue font"
                 />
+                <div class="hidden message">Username must be unique, 3-15 normal characters</div>
               </form>
               <button class="font white" id="add-user-button">Add User</button>
             </div>
             <div class="cell" id="delete-player-cell">
-              <form action="">
+              <form action="" onsubmit="event.preventDefault();">
                 <input
                   type="text"
                   name="delete-user"
                   id="delete-user-input"
                   class="blue font"
                 />
+                <div class="hidden message">Input must be an existing user</div>
               </form>
               <button class="font white" id="delete-user-button">
                 Delete User
@@ -44,8 +46,9 @@
             <div class="font blue space-between">
               <div class="pin-input-cell">
                 <form action="" onsubmit="event.preventDefault();">
-                  <input type="number" id="chance-score" class="pin-input blue" min="0" max="10" pattern="[0-9]">
+                  <input type="number" id="chance-score" class="pin-input blue">
                   <button id="select-pins-button" class="white font">Select Pins</button>
+                  <div id="pins-error" class="hidden message">Make a valid entry</div>
                 </form>
               </div>
               

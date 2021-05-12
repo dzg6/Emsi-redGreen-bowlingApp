@@ -7,7 +7,7 @@ export function normalize(elem){
 export function invalidate(elem){
     elem.classList.add('invalid');
     //Could use message to update the username already exisits.
-    // elem.nextElementSibling.classList.remove('hidden')
+    elem.nextElementSibling.classList.remove('hidden');
 }
 let pinsError = document.querySelector('#pins-error');
 export function normalizePinsInput(){
@@ -69,12 +69,12 @@ export function deletePlayer()
         return;
     }
     var user = document.getElementById(userName.value);
-    let arrayPosition = playersArray.findIndex(element => element === userName.value)
-    playersArray.splice(arrayPosition, arrayPosition)
+    let index = playersArray.indexOf(userName.value);
+    playersArray.splice(index,1);
     user.parentNode.removeChild(user);
 }
 
-function sanitizePinsInput(){
+export function sanitizePinsInput(){
     if(total == 0 || chances == 0){
         total =10;
         chances=2;
